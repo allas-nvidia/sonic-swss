@@ -274,6 +274,11 @@ bool OrchDaemon::init()
     m_orchList.push_back(vnet_rt_orch);
     m_orchList.push_back(gNatOrch);
 
+    TableConnector confDbTxMonErr(m_configDb, CFG_TxMON_ERR_TABLE_NAME);
+    TableConnector stateDbTxMonErr(m_stateDb, STATE_TxMON_ERR_TABLE_NAME);
+    TableConnector appDbTxMonErr(m_applDb, APP_TxMON_ERR_TABLE_NAME);
+    m_orchList.push_back(new TxMonOrch(appDbTxMonErr, confDbTxMonErr,stateDbTxMonErr));
+
     m_select = new Select();
 
     vector<string> flex_counter_tables = {

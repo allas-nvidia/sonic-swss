@@ -31,6 +31,7 @@
 #include "debugcounterorch.h"
 #include "directory.h"
 #include "natorch.h"
+#include "txmonerrorch.h"
 
 using namespace swss;
 
